@@ -1,459 +1,1072 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact List</title>
     <style>
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+        }
 
-  /*-------------button--------------*/
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -7.5px;
-    margin-left: -7.5px;
-}
-.btn:link,
-.btn:visited,
-input[type=submit]{
-    display:inline-block;
-    padding: 10px 30px;
-    font-weight: 300;
-    text-decoration: none;
-     border-radius: 200px;
-    -webkit-transition: background-color 0.2s,border 0.2s,color 0.2s;
-    transition: background-color 0.2s,border 0.2s,color 0.2s;
-}
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
 
-.btn-full:link,
-.btn-full:visited,
-input[type=submit]{
-    background-color: #e67e22;
-    border: 1px solid #e67e22;
-    color: #fff;
-    margin-right: 15px;
-    }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
 
-.btn-ghost:link,
-.btn-ghost:visited{
-     border: 1px solid  #e67e22;
-     color: #e67e22;
-}
+        .call-btn,
+        .whatsapp-btn {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            display: inline-block;
+            margin: 5px;
+        }
 
-.btn:hover,
-.btn:active,
-input[type=submit]:hover,
-input[type=submit]:active{
-  background-color:#cf6d17;
-}
+        .call-btn {
+            background-color: #4a22cf;
+        }
 
-.btn-full:hover,
-.btn-full:active{
-    border: 1px solid #cf6d17 ;
-   
-    }
+        .call-btn:hover {
+            background-color: #5540ed;
+        }
 
-.btn-ghost:hover,
-.btn-ghost:active{
-     border: 1px solid #cf6d17;
-     color: #fff;
-}
-body {font-family: Arial;}
+        .whatsapp-btn {
+            background-color: #25D366;
+        }
 
-/* Style the tab */
-.tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-}
-
-/* Style the buttons inside the tab */
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 17px;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
+        .whatsapp-btn:hover {
+            background-color: #20b358;
+        }
     </style>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,intial scale=1.0">
-    <meta http-equiv="X-UA-compatible" content="ie-edge">
-    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    
-    <title> zz-tushar-zz  </title>
-   
 </head>
-    
-    <body>
-	
-     <div style="text-align:center;">
-	  <h2 style="margin:5px;">ZZ-tushar-ZZ</h2>
 
-	 </div>
-   
-
-<div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'Website')"style="margin-left: 38%;">Website</button>
-  <button class="tablinks" onclick="openCity(event, 'Editor')"style="margin-left: 3%;">Editor</button>
-  <button class="tablinks" onclick="openCity(event, 'Library')"style="margin-left: 3%;">Library</button>
-  <button class="tablinks" onclick="openCity(event, 'PC')"style="margin-left: 3%;">PC</button>
-</div>
-
-<div id="Website" class="tabcontent">
-
-  <div class="row">
-        <div style="height:500px;width:300px; overflow:auto;">
-		
-           <div style="padding:10px;">
-		   <a href="https://www.google.com/"target="_blank" class="btn btn-ghost"style="background-color:green;color:#fff;">google</a>
-			    <a href="https://www.youtube.com/" target="_blank" class="btn btn-ghost"style="background-color:red;color:#fff;">YOUTUBE</a>
-			
-			</div>
-           <a href="https://webgradients.com/"target="iframe_a" class="btn btn-ghost"> gradient color</a>
-           <a href="http://getuicolors.com/"target="iframe_a" class="btn btn-ghost"> cool color</a>
-           <a href="https://www.0to255.com/"target="iframe_a" class="btn btn-ghost"> get shade of color</a>
-           <a href="https://fonts.google.com/"target="iframe_a" class="btn btn-ghost">g-font famaily</a>
-           <a href="https://www.fontsquirrel.com/"target="iframe_a" class="btn btn-ghost">free fonts</a>
-           <a href="https://fontpair.co/"target="iframe_a" class="btn btn-ghost">font combination</a><br>
-           <a href="https://uigradients.com/"target="iframe_a" class="btn btn-ghost">background gradient color</a>
-           <a href="http://thestocks.im/"target="iframe_a" class="btn btn-ghost">free images</a>
-           <a href="https://www.pexels.com/"target="iframe_a" class="btn btn-ghost">images pexel</a>
-           <a href="http://thepatternlibrary.com/"target="iframe_a" class="btn btn-ghost">pattern library</a><br>
-           <a href="https://unsplash.com/"target="iframe_a" class="btn btn-ghost">images unsplash</a>
-           <a href="http://imcreator.com/free"target="iframe_a" class="btn btn-ghost">images topic-wise</a>
-           <a href="https://mazwai.com/"target="iframe_a" class="btn btn-ghost">free videos</a>
-           <a href="https://thehipperelement.com/post/75476711614/ux-crash-course-31-fundamentals" class="btn btn-ghost">UX gyan </a>
-           <a href="https://goodui.org/"target="iframe_a" class="btn btn-ghost">UI tricks</a><br>
-           <a href="https://www.siteinspire.com/"target="iframe_a" class="btn btn-ghost">inspire website</a>
-            <a href="https://www.admiretheweb.com/"target="iframe_a" class="btn btn-ghost">inspire website structure</a>
-           <a href="https://calltoidea.com/"target="iframe_a" class="btn btn-ghost">insire desighn element</a>
-           <a href="https://www.w3schools.com/"target="iframe_a" class="btn btn-ghost">w3school</a>
-           <a href="https://tympanus.net/codrops/css_reference"target="iframe_a" class="btn btn-ghost">CSS refrance</a>
-           <a href="https://developer.mozilla.org/en-US/"target="iframe_a" class="btn btn-ghost">MND web docs</a>
-            <a href="http://keycodes.atjayjo.com/#charcode"target="iframe_a" class="btn btn-ghost">get your keycode</a>
-			</div>
-          <iframe height="550px" width="1170px" src="" name="iframe_a"></iframe>
-</div>
-</div>
-<div id="Editor" class="tabcontent">
-  <h3>Editor</h3>
-<iframe src="https://codepen.io/kscatcensus/pen/XedLvZ" style="width:100%; height:1000px;">
-</iframe>
-</div>
-
-<div id="Library" class="tabcontent">
-  <h3>Library</h3>
-    <p>
-    
-             
-        <div style="padding:5px;">
-		    <button  class="btn btn-ghost"type='button' onclick="document.getElementById('col1').style.display='block'" > 1-column</button>
-           <button  class="btn btn-ghost"type='button' onclick="document.getElementById('col2').style.display='block'" > 2-column</button>
-           <button  class="btn btn-ghost"type='button' onclick="document.getElementById('col3').style.display='block'" > 3-column</button>
-           <button  class="btn btn-ghost"type='button' onclick="document.getElementById('col4').style.display='block'" >4-column</button>
-           <button  class="btn btn-ghost"type='button' onclick="document.getElementById('col5').style.display='block'" >5-column</button>
-           <button  class="btn btn-ghost"type='button' onclick="document.getElementById('col6').style.display='block'" > 6-column</button>
-		</div>
-		   
-        <div style="padding:5px;">
-   		   <button  class="btn btn-ghost"type='button' onclick="document.getElementById('T2').style.display='block'" > 2-column-TABLE</button>
-           <button  class="btn btn-ghost"type='button' onclick="document.getElementById('T3').style.display='block'" > 3-column-TABLE</button>
-           <button  class="btn btn-ghost"type='button' onclick="document.getElementById('T4').style.display='block'" >4-column-TABLE</button>
-           <button  class="btn btn-ghost"type='button' onclick="document.getElementById('T5').style.display='block'" >5-column-TABLE</button>
-           <button  class="btn btn-ghost"type='button' onclick="document.getElementById('T6').style.display='block'" > 6-column-TABLE</button>
-           <button  class="btn btn-ghost"type='button' onclick="document.getElementById('T7').style.display='block'" > 7-column-TABLE</button>
-           <button  class="btn btn-ghost"type='button' onclick="document.getElementById('T8').style.display='block'" > 8-column-TABLE</button>
-		</div>
-          
-          
-        
-     
-      
-        <p id="col1" style = 'display: none'>&lt;div class="col-md-12"&gt;&lt;/div&gt;</p> 
-        
-        
-        <p id="col2" style = 'display: none'>
-            &lt;div class="col-md-12 row"&gt;</br>
-    &lt;div class="col-md-6"&gt;&lt;/div&gt;</br>
-    &lt;div class="col-md-6"&gt;&lt;/div&gt;</br>
-&lt;/div&gt;</br>
-        
-        </p> 
-        
-        
-        <p id="col3" style = 'display: none'>
-&lt;div class="col-md-12 row"&gt;</br>
-    &lt;div class="col-md-4"&gt;&lt;/div&gt;</br>
-    &lt;div class="col-md-4"&gt;&lt;/div&gt;</br>
-    &lt;div class="col-md-4"&gt;&lt;/div&gt;</br>
-    
-&lt;/div&gt;   </br>
-        </p> 
-        <p id="col4" style = 'display: none'>
-            
-&lt;div class="col-md-12 row"&gt;</br>
-    &lt;div class="col-md-3"&gt;&lt;/div&gt;</br>
-    &lt;div class="col-md-3"&gt;&lt;/div&gt;</br>
-    &lt;div class="col-md-3"&gt;&lt;/div&gt;</br>
-    &lt;div class="col-md-3"&gt;&lt;/div&gt;</br>
-&lt;/div&gt;</br>
-            
-        </p> 
-        <p id="col5" style = 'display: none'>
-            
-&lt;div class="col-md-12 row"&gt;</br>
-
-    &lt;div class="col-md-2 col-md-offset-1"&gt;One&lt;/div&gt;</br>
-    &lt;div class="col-md-2"&gt;Two&lt;/div&gt;</br>
-    &lt;div class="col-md-2"&gt;Three&lt;/div&gt;</br>
-    &lt;div class="col-md-2"&gt;Four&lt;/div&gt;</br>
-    &lt;div class="col-md-2"&gt;Five&lt;/div&gt;</br>
-
-&lt;/div&gt;</br>
-            
-        </p> 
-        <p id="col6" style = 'display: none'>
-            
- &lt;div class="col-md-12 row"&gt;</br>
-    &lt;div class="col-md-2"&gt;&lt;/div&gt;</br>
-    &lt;div class="col-md-2"&gt;&lt;/div&gt;</br>
-    &lt;div class="col-md-2"&gt;&lt;/div&gt;</br>
-    &lt;div class="col-md-2"&gt;&lt;/div&gt;</br>
-    &lt;div class="col-md-2"&gt;&lt;/div&gt;</br>
-    &lt;div class="col-md-2"&gt;&lt;/div&gt;</br>
-&lt;/div&gt;</br>
-            
-        </p> 
-		             
-    
-              <p id="T2" style = "display: none;">
-			 	 &lt;table class="" &gt;</br>
-                   &lt;thead &gt;        </br>          
-                     &lt;tr &gt;</br>
-                       &lt;th &gt;1 &lt;/th &gt;</br>
-                       &lt;th &gt;2 &lt;/th &gt;</br>
-                      
-                     &lt;/tr &gt;</br>
-                   &lt;/thead &gt;</br>
-                   &lt;tbody &gt;</br>
-                     &lt;tr &gt;</br>
-                       &lt;td &gt;A &lt;/td &gt;</br>
-                       &lt;td &gt;B &lt;/td &gt;</br>
-                     
-                     &lt;/tr &gt;</br>
-                   
-                   &lt;/tbody &gt;</br>
-                 &lt;/table &gt;</br>
-				 </p> 
-			  <p id="T3" style = "display: none;">
-			 &lt;table class="" &gt;</br>
-                   &lt;thead &gt;     </br>             
-                     &lt;tr &gt;</br>
-                       &lt;th &gt;1 &lt;/th &gt;</br>
-                       &lt;th &gt;2 &lt;/th &gt;</br>
-                       &lt;th &gt;3 &lt;/th &gt;</br>
-                     
-                     &lt;/tr &gt;</br>
-                   &lt;/thead &gt;</br>
-                   &lt;tbody &gt;</br>
-                     &lt;tr &gt;</br>
-                       &lt;td &gt;A &lt;/td &gt;</br>
-                       &lt;td &gt;B &lt;/td &gt;</br>
-                       &lt;td &gt;C &lt;/td &gt;</br>
-                     
-                     &lt;/tr &gt;</br>
-                   
-                   &lt;/tbody &gt;</br>
-                 &lt;/table &gt;</br>
-			  </p> 
-			  <p id="T4" style = "display: none;">
-			   &lt;table class="" &gt;</br>
-                   &lt;thead &gt;        </br>          
-                     &lt;tr &gt;</br>
-                       &lt;th &gt;1 &lt;/th &gt;</br>
-                       &lt;th &gt;2 &lt;/th &gt;</br>
-                       &lt;th &gt;3 &lt;/th &gt;</br>
-                       &lt;th &gt;4 &lt;/th &gt;</br>
-					 
-                     &lt;/tr &gt;</br>
-                   &lt;/thead &gt;</br>
-                   &lt;tbody &gt;</br>
-                     &lt;tr &gt;</br>
-                       &lt;td &gt;A &lt;/td &gt;</br>
-                       &lt;td &gt;B &lt;/td &gt;</br>
-                       &lt;td &gt;C &lt;/td &gt;</br>
-                       &lt;td &gt;D &lt;/td &gt;</br>
-					
-                     &lt;/tr &gt;</br>
-                   
-                   &lt;/tbody &gt;</br>
-                 &lt;/table &gt;</br>
-			  </p> 
-			  <p id="T5" style = "display: none;">
-			   &lt;table class="" &gt;</br>
-                   &lt;thead &gt;      </br>            
-                     &lt;tr &gt;</br>
-                       &lt;th &gt;1 &lt;/th &gt;</br>
-                       &lt;th &gt;2 &lt;/th &gt;</br>
-                       &lt;th &gt;3 &lt;/th &gt;</br>
-                       &lt;th &gt;4 &lt;/th &gt;</br>
-					   &lt;th &gt;5 &lt;/th &gt;</br>
-                     
-                     &lt;/tr &gt;</br>
-                   &lt;/thead &gt;</br>
-                   &lt;tbody &gt;</br>
-                     &lt;tr &gt;</br>
-                       &lt;td &gt;A &lt;/td &gt;</br>
-                       &lt;td &gt;B &lt;/td &gt;</br>
-                       &lt;td &gt;C &lt;/td &gt;</br>
-                       &lt;td &gt;D &lt;/td &gt;</br>
-					   &lt;td &gt;E &lt;/td &gt;</br>
-                    
-                     &lt;/tr &gt;</br>
-                   
-                   &lt;/tbody &gt;</br>
-                 &lt;/table &gt;</br>
-			  </p> 
-			  <p id="T6" style = "display: none;">
-			  	  &lt;table class="" &gt;</br>
-                   &lt;thead &gt;            </br>      
-                     &lt;tr &gt;</br>
-                       &lt;th &gt;1 &lt;/th &gt;</br>
-                       &lt;th &gt;2 &lt;/th &gt;</br>
-                       &lt;th &gt;3 &lt;/th &gt;</br>
-                       &lt;th &gt;4 &lt;/th &gt;</br>
-					   &lt;th &gt;5 &lt;/th &gt;</br>
-                       &lt;th &gt;6 &lt;/th &gt;</br>
-                  
-                     &lt;/tr &gt;</br>
-                   &lt;/thead &gt;</br>
-                   &lt;tbody &gt;</br>
-                     &lt;tr &gt;</br>
-                       &lt;td &gt;A &lt;/td &gt;</br>
-                       &lt;td &gt;B &lt;/td &gt;</br>
-                       &lt;td &gt;C &lt;/td &gt;</br>
-                       &lt;td &gt;D &lt;/td &gt;</br>
-					   &lt;td &gt;E &lt;/td &gt;</br>
-                       &lt;td &gt;F &lt;/td &gt;</br>
-                      
-                     &lt;/tr &gt;</br>
-                   
-                   &lt;/tbody &gt;</br>
-                 &lt;/table &gt;</br>
-			  </p> 
-			  <p id="T7" style = "display: none; ">
-			
-			   &lt;table class="" &gt;</br>
-                   &lt;thead &gt;              </br>    
-                     &lt;tr &gt;</br>
-                       &lt;th &gt;1 &lt;/th &gt;</br>
-                       &lt;th &gt;2 &lt;/th &gt;</br>
-                       &lt;th &gt;3 &lt;/th &gt;</br>
-                       &lt;th &gt;4 &lt;/th &gt;</br>
-					   &lt;th &gt;5 &lt;/th &gt;</br>
-                       &lt;th &gt;6 &lt;/th &gt;</br>
-                       &lt;th &gt;7 &lt;/th &gt;</br>
-                      
-                     &lt;/tr &gt;</br>
-                   &lt;/thead &gt;</br>
-                   &lt;tbody &gt;</br>
-                     &lt;tr &gt;</br>
-                       &lt;td &gt;A &lt;/td &gt;</br>
-                       &lt;td &gt;B &lt;/td &gt;</br>
-                       &lt;td &gt;C &lt;/td &gt;</br>
-                       &lt;td &gt;D &lt;/td &gt;</br>
-					   &lt;td &gt;E &lt;/td &gt;</br>
-                       &lt;td &gt;F &lt;/td &gt;</br>
-                       &lt;td &gt;G &lt;/td &gt;</br>
-                     
-                     &lt;/tr &gt;</br>
-                   
-                   &lt;/tbody &gt;</br>
-                 &lt;/table &gt;</br>
-			  
-			 
-			  
-				 
-			  </p> 
- 
-			  
-				
-				 <p id="T8" style = "display: none;">
-				  &lt;table class="" &gt;</br>
-                   &lt;thead &gt;                  </br>
-                     &lt;tr &gt;</br>
-                       &lt;th &gt;1 &lt;/th &gt;</br>
-                       &lt;th &gt;2 &lt;/th &gt;</br>
-                       &lt;th &gt;3 &lt;/th &gt;</br>
-                       &lt;th &gt;4 &lt;/th &gt;</br>
-					   &lt;th &gt;5 &lt;/th &gt;</br>
-                       &lt;th &gt;6 &lt;/th &gt;</br>
-                       &lt;th &gt;7 &lt;/th &gt;</br>
-                       &lt;th &gt;8 &lt;/th &gt;</br>
-                     &lt;/tr &gt;</br>
-                   &lt;/thead &gt;</br>
-                   &lt;tbody &gt;</br>
-                     &lt;tr &gt;</br>
-                       &lt;td &gt;A &lt;/td &gt;</br>
-                       &lt;td &gt;B &lt;/td &gt;</br>
-                       &lt;td &gt;C &lt;/td &gt;</br>
-                       &lt;td &gt;D &lt;/td &gt;</br>
-					   &lt;td &gt;E &lt;/td &gt;</br>
-                       &lt;td &gt;F &lt;/td &gt;</br>
-                       &lt;td &gt;G &lt;/td &gt;</br>
-                       &lt;td &gt;H &lt;/td &gt;</br>
-                     &lt;/tr &gt;</br>
-                   
-                   &lt;/tbody &gt;</br>
-                 &lt;/table &gt;</br>
-				
-				 
-				 </p> 
- 
-        </p>
-</div>
-<div id="PC" class="tabcontent">
-  <h3>Library</h3>
-  <p>Library is the capital of Japan.</p>
-</div>
-
-<script>
-function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-</script>
-   
-    </body>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Sr No</th>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Vaishali Chachere</td>
+                <td>+918208297153</td>
+                <td><a href="tel:+918208297153" class="call-btn">Call</a><a href="https://wa.me/+918208297153"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Pihu Mishra</td>
+                <td>+918668471235</td>
+                <td><a href="tel:+918668471235" class="call-btn">Call</a><a href="https://wa.me/+918668471235"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Acharya Amaresh Jha</td>
+                <td>+919910034748</td>
+                <td><a href="tel:+919910034748" class="call-btn">Call</a><a href="https://wa.me/+919910034748"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Acharya Darshan</td>
+                <td>+919981551284</td>
+                <td><a href="tel:+919981551284" class="call-btn">Call</a><a href="https://wa.me/+919981551284"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Acharya Nayan</td>
+                <td>+918007033175</td>
+                <td><a href="tel:+918007033175" class="call-btn">Call</a><a href="https://wa.me/+918007033175"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Unknown</td>
+                <td>+919823477651</td>
+                <td><a href="tel:+919823477651" class="call-btn">Call</a><a href="https://wa.me/+919823477651"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Anant Malgave</td>
+                <td>+919970058148</td>
+                <td><a href="tel:+919970058148" class="call-btn">Call</a><a href="https://wa.me/+919970058148"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Aniket</td>
+                <td>+919960510054</td>
+                <td><a href="tel:+919960510054" class="call-btn">Call</a><a href="https://wa.me/+919960510054"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Anil Dharkar</td>
+                <td>+919823032364</td>
+                <td><a href="tel:+919823032364" class="call-btn">Call</a><a href="https://wa.me/+919823032364"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Arhant Jain</td>
+                <td>+919730047488</td>
+                <td><a href="tel:+919730047488" class="call-btn">Call</a><a href="https://wa.me/+919730047488"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Arjun Mishra</td>
+                <td>+919425426984</td>
+                <td><a href="tel:+919425426984" class="call-btn">Call</a><a href="https://wa.me/+919425426984"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Arvind</td>
+                <td>+919915835791</td>
+                <td><a href="tel:+919915835791" class="call-btn">Call</a><a href="https://wa.me/+919915835791"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Balakdas Bagde</td>
+                <td>+919479893222</td>
+                <td><a href="tel:+919479893222" class="call-btn">Call</a><a href="https://wa.me/+919479893222"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Barapatre</td>
+                <td>+917038651042</td>
+                <td><a href="tel:+917038651042" class="call-btn">Call</a><a href="https://wa.me/+917038651042"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Nilesh Dhakane</td>
+                <td>+919623133909</td>
+                <td><a href="tel:+919623133909" class="call-btn">Call</a><a href="https://wa.me/+919623133909"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>Bhaisare Ashwin</td>
+                <td>+918459134886</td>
+                <td><a href="tel:+918459134886" class="call-btn">Call</a><a href="https://wa.me/+918459134886"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>Bhuvaneshwar Bezalwar</td>
+                <td>+919623310674</td>
+                <td><a href="tel:+919623310674" class="call-btn">Call</a><a href="https://wa.me/+919623310674"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>Bl Belwanshi</td>
+                <td>+916266342615</td>
+                <td><a href="tel:+916266342615" class="call-btn">Call</a><a href="https://wa.me/+916266342615"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>Umesh Borate</td>
+                <td>+919371617151</td>
+                <td><a href="tel:+919371617151" class="call-btn">Call</a><a href="https://wa.me/+919371617151"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>Prakash V Khobragade</td>
+                <td>+919422907530</td>
+                <td><a href="tel:+919422907530" class="call-btn">Call</a><a href="https://wa.me/+919422907530"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>C G Nagpure</td>
+                <td>+919423691434</td>
+                <td><a href="tel:+919423691434" class="call-btn">Call</a><a href="https://wa.me/+919423691434"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>Chaitanya</td>
+                <td>+919021677347</td>
+                <td><a href="tel:+919021677347" class="call-btn">Call</a><a href="https://wa.me/+919021677347"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>Jiya Vanjani</td>
+                <td>+917020526387</td>
+                <td><a href="tel:+917020526387" class="call-btn">Call</a><a href="https://wa.me/+917020526387"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>dd3021@gmail.com</td>
+                <td>+919373102459</td>
+                <td><a href="tel:+919373102459" class="call-btn">Call</a><a href="https://wa.me/+919373102459"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>Deepak</td>
+                <td>+918668998522</td>
+                <td><a href="tel:+918668998522" class="call-btn">Call</a><a href="https://wa.me/+918668998522"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>Deepti</td>
+                <td>+919284649482</td>
+                <td><a href="tel:+919284649482" class="call-btn">Call</a><a href="https://wa.me/+919284649482"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>Dilip Gupta</td>
+                <td>+919371063151</td>
+                <td><a href="tel:+919371063151" class="call-btn">Call</a><a href="https://wa.me/+919371063151"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>Dipali Meshram</td>
+                <td>+919404306561</td>
+                <td><a href="tel:+919404306561" class="call-btn">Call</a><a href="https://wa.me/+919404306561"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>Dr Vipul Gupta</td>
+                <td>+919421700885</td>
+                <td><a href="tel:+919421700885" class="call-btn">Call</a><a href="https://wa.me/+919421700885"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>G Sahu</td>
+                <td>+919370163807</td>
+                <td><a href="tel:+919370163807" class="call-btn">Call</a><a href="https://wa.me/+919370163807"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>Gajanan P Wagh</td>
+                <td>+918767073520</td>
+                <td><a href="tel:+918767073520" class="call-btn">Call</a><a href="https://wa.me/+918767073520"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>32</td>
+                <td>Gaurav Mongia</td>
+                <td>+919780891880</td>
+                <td><a href="tel:+919780891880" class="call-btn">Call</a><a href="https://wa.me/+919780891880"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>33</td>
+                <td>Gaurav Thaware</td>
+                <td>+919975049841</td>
+                <td><a href="tel:+919975049841" class="call-btn">Call</a><a href="https://wa.me/+919975049841"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>34</td>
+                <td>Gunwant Kshirsagar</td>
+                <td>+918379917059</td>
+                <td><a href="tel:+918379917059" class="call-btn">Call</a><a href="https://wa.me/+918379917059"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>35</td>
+                <td>Harsha Katiyar</td>
+                <td>+919373699680</td>
+                <td><a href="tel:+919373699680" class="call-btn">Call</a><a href="https://wa.me/+919373699680"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>36</td>
+                <td>Hemant Jibhakate</td>
+                <td>+919975596593</td>
+                <td><a href="tel:+919975596593" class="call-btn">Call</a><a href="https://wa.me/+919975596593"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>37</td>
+                <td>Hemant Marbade</td>
+                <td>+919860062816</td>
+                <td><a href="tel:+919860062816" class="call-btn">Call</a><a href="https://wa.me/+919860062816"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>38</td>
+                <td>Hitesh</td>
+                <td>+918788120650</td>
+                <td><a href="tel:+918788120650" class="call-btn">Call</a><a href="https://wa.me/+918788120650"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>39</td>
+                <td>Jagdish Maravi</td>
+                <td>+919425756688</td>
+                <td><a href="tel:+919425756688" class="call-btn">Call</a><a href="https://wa.me/+919425756688"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>40</td>
+                <td>Vipin Dubey</td>
+                <td>+918484091184</td>
+                <td><a href="tel:+918484091184" class="call-btn">Call</a><a href="https://wa.me/+918484091184"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>41</td>
+                <td>Bhupendra Singh Chauhan</td>
+                <td>+918208914282</td>
+                <td><a href="tel:+918208914282" class="call-btn">Call</a><a href="https://wa.me/+918208914282"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>42</td>
+                <td>Rohit Shukla</td>
+                <td>+917470852674</td>
+                <td><a href="tel:+917470852674" class="call-btn">Call</a><a href="https://wa.me/+917470852674"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>43</td>
+                <td>Jayant Zurmure</td>
+                <td>+919423617617</td>
+                <td><a href="tel:+919423617617" class="call-btn">Call</a><a href="https://wa.me/+919423617617"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>44</td>
+                <td>Jyoti Bagde</td>
+                <td>+917387874807</td>
+                <td><a href="tel:+917387874807" class="call-btn">Call</a><a href="https://wa.me/+917387874807"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>45</td>
+                <td>Kailash Singh</td>
+                <td>+919881021264</td>
+                <td><a href="tel:+919881021264" class="call-btn">Call</a><a href="https://wa.me/+919881021264"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>46</td>
+                <td>Kalyani Deshmukh</td>
+                <td>+919665203676</td>
+                <td><a href="tel:+919665203676" class="call-btn">Call</a><a href="https://wa.me/+919665203676"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>47</td>
+                <td>Kantikumar Bhayyaji Durag</td>
+                <td>+919420442500</td>
+                <td><a href="tel:+919420442500" class="call-btn">Call</a><a href="https://wa.me/+919420442500"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>48</td>
+                <td>Kavita Sone Khandelwal</td>
+                <td>+917350169255</td>
+                <td><a href="tel:+917350169255" class="call-btn">Call</a><a href="https://wa.me/+917350169255"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>49</td>
+                <td>Mayank Srirangi</td>
+                <td>+919828437661</td>
+                <td><a href="tel:+919828437661" class="call-btn">Call</a><a href="https://wa.me/+919828437661"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>50</td>
+                <td>Kumud Balpande</td>
+                <td>+918793663282</td>
+                <td><a href="tel:+918793663282" class="call-btn">Call</a><a href="https://wa.me/+918793663282"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>51</td>
+                <td>Kunal</td>
+                <td>+919890650708</td>
+                <td><a href="tel:+919890650708" class="call-btn">Call</a><a href="https://wa.me/+919890650708"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>52</td>
+                <td>Laxchiramram</td>
+                <td>+919769984589</td>
+                <td><a href="tel:+919769984589" class="call-btn">Call</a><a href="https://wa.me/+919769984589"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>53</td>
+                <td>Laxmichand Kungwani</td>
+                <td>+919657981142</td>
+                <td><a href="tel:+919657981142" class="call-btn">Call</a><a href="https://wa.me/+919657981142"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>54</td>
+                <td>M. Nagpal</td>
+                <td>+919371927563</td>
+                <td><a href="tel:+919371927563" class="call-btn">Call</a><a href="https://wa.me/+919371927563"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>55</td>
+                <td>Madhav Chimurkae</td>
+                <td>+917620727214</td>
+                <td><a href="tel:+917620727214" class="call-btn">Call</a><a href="https://wa.me/+917620727214"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>56</td>
+                <td>Madhuri Dufare</td>
+                <td>+917020137883</td>
+                <td><a href="tel:+917020137883" class="call-btn">Call</a><a href="https://wa.me/+917020137883"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>57</td>
+                <td>Mahendra Golechha</td>
+                <td>+919421813006</td>
+                <td><a href="tel:+919421813006" class="call-btn">Call</a><a href="https://wa.me/+919421813006"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>58</td>
+                <td>Mahesh Pise</td>
+                <td>+919503105237</td>
+                <td><a href="tel:+919503105237" class="call-btn">Call</a><a href="https://wa.me/+919503105237"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>59</td>
+                <td>Mahi</td>
+                <td>+919511672456</td>
+                <td><a href="tel:+919511672456" class="call-btn">Call</a><a href="https://wa.me/+919511672456"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>60</td>
+                <td>Manish Kumar Chandel Soni</td>
+                <td>+918411055448</td>
+                <td><a href="tel:+918411055448" class="call-btn">Call</a><a href="https://wa.me/+918411055448"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>61</td>
+                <td>Megha</td>
+                <td>+918770876116</td>
+                <td><a href="tel:+918770876116" class="call-btn">Call</a><a href="https://wa.me/+918770876116"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>62</td>
+                <td>Meghshyam Shingade</td>
+                <td>+918007232163</td>
+                <td><a href="tel:+918007232163" class="call-btn">Call</a><a href="https://wa.me/+918007232163"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>63</td>
+                <td>Hemant Jain</td>
+                <td>+919425896916</td>
+                <td><a href="tel:+919425896916" class="call-btn">Call</a><a href="https://wa.me/+919425896916"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>64</td>
+                <td>Munna Biranwar</td>
+                <td>+919637117267</td>
+                <td><a href="tel:+919637117267" class="call-btn">Call</a><a href="https://wa.me/+919637117267"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>65</td>
+                <td>Naina Pise</td>
+                <td>+917020907685</td>
+                <td><a href="tel:+917020907685" class="call-btn">Call</a><a href="https://wa.me/+917020907685"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>66</td>
+                <td>Narendra Jain</td>
+                <td>+919371562249</td>
+                <td><a href="tel:+919371562249" class="call-btn">Call</a><a href="https://wa.me/+919371562249"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>67</td>
+                <td>Narendra Naite</td>
+                <td>+919921451 préparation</td>
+                <td><a href="tel:+919921451453" class="call-btn">Call</a><a href="https://wa.me/+919921451453"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>68</td>
+                <td>Narendra Punyani</td>
+                <td>+919372394649</td>
+                <td><a href="tel:+919372394649" class="call-btn">Call</a><a href="https://wa.me/+919372394649"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>69</td>
+                <td>Narendrasingh Nagbhire</td>
+                <td>+918806188555</td>
+                <td><a href="tel:+918806188555" class="call-btn">Call</a><a href="https://wa.me/+918806188555"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>70</td>
+                <td>Nitendraa Kumar</td>
+                <td>+919949103038</td>
+                <td><a href="tel:+919949103038" class="call-btn">Call</a><a href="https://wa.me/+919949103038"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>71</td>
+                <td>Nitin Pournima</td>
+                <td>+919423502206</td>
+                <td><a href="tel:+919423502206" class="call-btn">Call</a><a href="https://wa.me/+919423502206"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>72</td>
+                <td>Ulhas Burade</td>
+                <td>+919970191929</td>
+                <td><a href="tel:+919970191929" class="call-btn">Call</a><a href="https://wa.me/+919970191929"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>73</td>
+                <td>Santmat Dhara</td>
+                <td>+917303012634</td>
+                <td><a href="tel:+917303012634" class="call-btn">Call</a><a href="https://wa.me/+917303012634"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>74</td>
+                <td>Pankaj Satankar</td>
+                <td>+919827119688</td>
+                <td><a href="tel:+919827119688" class="call-btn">Call</a><a href="https://wa.me/+919827119688"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>75</td>
+                <td>Payal Hariramani</td>
+                <td>+919326655666</td>
+                <td><a href="tel:+919326655666" class="call-btn">Call</a><a href="https://wa.me/+919326655666"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>76</td>
+                <td>Rajesh Padole</td>
+                <td>+919370035090</td>
+                <td><a href="tel:+919370035090" class="call-btn">Call</a><a href="https://wa.me/+919370035090"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>77</td>
+                <td>Pradnya Wankhede</td>
+                <td>+919850169540</td>
+                <td><a href="tel:+919850169540"  class="call-btn">Call</a><a href="https://wa.me/+919850169540"
+                        class="whatsapp-btn">WhatsApp</a></td>
+                
+            </tr>
+            <tr>
+                <td>78</td>
+                <td>Prakash Malgave</td>
+                <td>+919422130437</td>
+                <td><a href="tel:+919422130437" class="call-btn">Call</a><a href="https://wa.me/+919422130437"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>79</td>
+                <td>Pratibha</td>
+                <td>+919404116459</td>
+                <td><a href="tel:+919404116459" class="call-btn">Call</a><a href="https://wa.me/+919404116459"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>80</td>
+                <td>Pratibfenny Taywade</td>
+                <td>+919021959048</td>
+                <td><a href="tel:+919021959048" class="call-btn">Call</a><a href="https://wa.me/+919021959048"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>81</td>
+                <td>Prema</td>
+                <td>+918989407444</td>
+                <td><a href="tel:+918989407444" class="call-btn">Call</a><a href="https://wa.me/+918989407444"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>82</td>
+                <td>Priya Tirpude</td>
+                <td>+919665093693</td>
+                <td><a href="tel:+919665093693" class="call-btn">Call</a><a href="https://wa.me/+919665093693"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>83</td>
+                <td>Pruthviraj Bhalekar</td>
+                <td>+917709693972</td>
+                <td><a href="tel:+917709693972" class="call-btn">Call</a><a href="https://wa.me/+917709693972"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>84</td>
+                <td>Rajendra</td>
+                <td>+918600361561</td>
+                <td><a href="tel:+918600361561" class="call-btn">Call</a><a href="https://wa.me/+918600361561"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>85</td>
+                <td>Rajesh Ughwani</td>
+                <td>+919325018678</td>
+                <td><a href="tel Stuart</a>
+<a href=" https://wa.me/+919325018678" class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>86</td>
+                <td>Ramesh Kumar Shrivas</td>
+                <td>+919657868260</td>
+                <td><a href="tel:+919657868260" class="call-btn">Call</a><a href="https://wa.me/+919657868260"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>87</td>
+                <td>Ramteke Premdas</td>
+                <td>+919423182705</td>
+                <td><a href="tel:+919423182705" class="call-btn">Call</a><a href="https://wa.me/+919423182705"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>88</td>
+                <td>Rashmi Biranwar</td>
+                <td>+919764036992</td>
+                <td><a href="tel:+919764036992" class="call-btn">Call</a><a href="https://wa.me/+919764036992"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>89</td>
+                <td>Ravi Sarve</td>
+                <td>+919970837094</td>
+                <td><a href="tel:+919970837094" class="call-btn">Call</a><a href="https://wa.me/+919970837094"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>90</td>
+                <td>Ravindra Kirtikar</td>
+                <td>+917083535228</td>
+                <td><a href="tel:+917083535228" class="call-btn">Call</a><a href="https://wa.me/+917083535228"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>91</td>
+                <td>Ravindra Singh</td>
+                <td>+919752475106</td>
+                <td><a href="tel:+919752475106" class="call-btn">Call</a><a href="https://wa.me/+919752475106"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>92</td>
+                <td>Ritesh</td>
+                <td>+919923258666</td>
+                <td><a href="tel:+919923258666" class="call-btn">Call</a><a href="https://wa.me/+919923258666"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>93</td>
+                <td>Rohit Patel</td>
+                <td>+917000273073</td>
+                <td><a href="tel:+917000273073" class="call-btn">Call</a><a href="https://wa.me/+917000273073"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>94</td>
+                <td>Ronghe Vijay</td>
+                <td>+919423635199</td>
+                <td><a href="tel:+919423635199" class="call-btn">Call</a><a href="https://wa.me/+919423635199"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>95</td>
+                <td>Rupali Wasnik</td>
+                <td>+919067907365</td>
+                <td><a href="tel:+919067907365" class="call-btn">Call</a><a href="https://wa.me/+919067907365"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>96</td>
+                <td>Sachin Futane</td>
+                <td>+919623456607</td>
+                <td><a href="tel:+919623456607" class="call-btn">Call</a><a href="https://wa.me/+919623456607"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>97</td>
+                <td>Sandeep Kushwaha</td>
+                <td>+917566516379</td>
+                <td><a href="tel:+917566516379" class="call-btn">Call</a><a href="https://wa.me/+917566516379"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>98</td>
+                <td>Sandeep Raut</td>
+                <td>+919922585573</td>
+                <td><a href="tel:+919922585573" class="call-btn">Call</a><a href="https://wa.me/+919922585573"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>99</td>
+                <td>Sanjay Gupta</td>
+                <td>+919422127316</td>
+                <td><a href="tel:+919422127316" class="call-btn">Call</a><a href="https://wa.me/+919422127316"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>100</td>
+                <td>Sanjay Lakhorkar</td>
+                <td>+917020078210</td>
+                <td><a href="tel:+917020078210" class="call-btn">Call</a><a href="https://wa.me/+917020078210"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>101</td>
+                <td>Sanjay Padole</td>
+                <td>+919422950075</td>
+                <td><a href="tel:+919422950075" class="call-btn">Call</a><a href="https://wa.me/+919422950075"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>102</td>
+                <td>Sanjay Pawankar</td>
+                <td>+919175614700</td>
+                <td><a href="tel:+919175614700" class="call-btn">Call</a><a href="https://wa.me/+919175614700"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>103</td>
+                <td>Santosh Rathod</td>
+                <td>+919588469728</td>
+                <td><a href="tel:+919588469728" class="call-btn">Call</a><a href="https://wa.me/+919588469728"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>104</td>
+                <td>Sarath Ghosh</td>
+                <td>+919960066331</td>
+                <td><a href="tel:+919960066331" class="call-btn">Call</a><a href="https://wa.me/+919960066331"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>105</td>
+                <td>Saroj Narnaware</td>
+                <td>+919960652769</td>
+                <td><a href="tel:+919960652769" class="call-btn">Call</a><a href="https://wa.me/+919960652769"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>106</td>
+                <td>Satish Kankhe</td<>
+                <td>+919823322711</td>
+                <td><a href="tel:+919823322711" class="call-btn">Call</a><a href="https://wa.me/+919823322711"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>107</td>
+                <td>Satyam Mishra</td>
+                <td>+918855003352</td>
+                <td><a href="tel:+9188551973352" class="call-btn">Call</a><a href="https://wa.me/+918855003352"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>108</td>
+                <td>Savita Marghade</td>
+                <td>+919421366882</td>
+                <td><a href="tel:+919421366882" class="call-btn">Call</a><a href="https://wa.me/+919421366882"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>109</td>
+                <td>Shamrao Mankar</td>
+                <td>+917587511099</td>
+                <td><a href="tel:+917587511099" class="call-btn">Call</a><a href="https://wa.me/+917587511099"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>110</td>
+                <td>Sharad Mundhada</td>
+                <td>+919890758733</td>
+                <td><a href="tel:+919890758733" class="call-btn">Call</a><a href="https://wa.me/+919890758733"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>111</td>
+                <td>Shikha</td>
+                <td>+917020317197</td>
+                <td><a href="tel:+917020317197" class="call-btn">Call</a><a href="https://wa.me/+917020317197"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>112</td>
+                <td>Shivshankar Baramase</td>
+                <td>+919561005331</td>
+                <td><a href="tel:+919561005331" class="call-btn">Call</a><a href="https://wa.me/+919561005331"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>113</td>
+                <td>Syamlal Matlani</td>
+                <td>+919823940700</td>
+                <td><a href="tel:+919823940700" class="call-btn">Call</a><a href="https://wa.me/+919823940700"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>114</td>
+                <td>Sneha Dhage</td>
+                <td>+918329003622</td>
+                <td><a href="tel:+918329003622" class="call-btn">Call</a><a href="https://wa.me/+918329003622"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>115</td>
+                <td>Sunita Ambule</td>
+                <td>+918275298597</td>
+                <td><a href="tel:+918275298597" class="call-btn">Call</a><a href="https://wa.me/+918275298597"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>116</td>
+                <td>Suresh Petkule</td>
+                <td>+918007873898</td>
+                <td><a href="tel:+918007873898" class="call-btn">Call</a><a href="https://wa.me/+918007873898"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>117</td>
+                <td>Sushila</td>
+                <td>+17142513817</td>
+                <td><a href="tel:+17142513817" class="call-btn">Call</a><a href="https://wa.me/+17142513817"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>118</td>
+                <td>Swami Chandrakant Yogi</td>
+                <td>+917030332429</td>
+                <td><a href="tel:+917030332429" class="call-btn">Call</a><a href="https://wa.me/+917030332429"
+                        class="whatsapp-btn">WhatsApp</a> <tr>
+            </tr>
+            <tr>
+                 <td>119</td>
+                <td>Tara Shiv</td>
+                <td>+918305957365</td>
+                <td><a href="tel:+918305957365" class="call-btn">Call</a><a href="https://wa.me/+918305957365"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>120</td>
+                <td>Ujwal Dhoke</td>
+                <td>+919422188702</td>
+                <td><a href="tel:+919422188702" class="call-btn">Call</a><a href="https://wa.me/+919422188702"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>121</td>
+                <td>Vaibhav Guldeokar</td>
+                <td>+918208212660</td>
+                <td><a href="tel:+918208212660" class="call-btn">Call</a><a href="https://wa.me/+918208212660"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>122</td>
+                <td>Vijaya Patne</td>
+                <td>+919373105143</td>
+                <td><a href="tel:+919373105143" class="call-btn">Call</a><a href="https://wa.me/+919373105143"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>123</td>
+                <td>Vinay Yadav</td>
+                <td>+919074469652</td>
+                <td><a href="tel:+91074469652" class="call-btn">Call</a><a href="https://wa.me/+91074469652"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>124</td>
+                <td>Vinod Baba</td>
+                <td>+919372308233</td>
+                <td><a href="tel:+919372308233" class="call-btn">Call</a><a href="https://wa.me/+919372308233"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>125</td>
+                <td>Soni Sahu</td>
+                <td>+919541544368</td>
+                <td><a href="tel:+919541544368" class="call-btn">Call</a><a href="https://wa.me/+919541544368"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>126</td>
+                <td>Ujwala Baramase</td>
+                <td>+917448219961</td>
+                <td><a href="tel:+917448219961" class="call-btn">Call</a><a href="https://wa.me/+917448219961"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>127</td>
+                <td>Deepak Baggewar</td>
+                <td>+917776006773</td>
+                <td><a href="tel:+917776006773" class="call-btn">Call</a><a href="https://wa.me/+917776006773"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>128</td>
+                <td>Ajit Shante</td>
+                <td>+917898940094</td>
+                <td><a href="tel:+917898940094" class="call-btn">Call</a><a href><a href="https://wa.me/+917898940094"
+                            class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>129</td>
+                <td>Reena Green Park</td>
+                <td>+918129589228</td>
+                <td><a href="tel:+918129589228" class="call-btn">Call</a><a href="https://wa.me/+918129589228"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>130</td>
+                <td>Khushbu Mishra</td>
+                <td>+918210306616</td>
+                <td><a href="tel:+918210306616" class="call-btn">Call</a><a href="https://wa.me/+918210306616"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>131</td>
+                <td>Yash Ghadge</td>
+                <td>+919146886646</td>
+                <td><a href="tel:+919146886646" class="call-btn">Call</a><a href="https://wa.me/+919146886646"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>132</td>
+                <td>Asha Mandhare</td>
+                <td>+9193731249491</td>
+                <td><a href="tel:+9193731249491" class="call-btn">Call</a><a href="https://wa.me/+9193731249491"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>133</td>
+                <td>Rudresh Kapgate</td>
+                <td>+919371656508</td>
+                <td><a href="tel:+9193731249491" class="call-btn">Call</a><a href="https://wa.me/+919371656508"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+             <tr>
+                <td>134</td>
+                <td>Indu Patil Mahal</td>
+                <td>+919373411787</td>
+                <td><a href="tel:+919373411787" class="call-btn">Call</a><a href="https://wa.me/+919373411787"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+            <tr>
+                <td>135</td>
+                <td>sunita das</td>
+                <td>+919406778909</td>
+                <td><a href="tel:+919406778909" class="call-btn">Call</a><a href="https://wa.me/+919406778909"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+             <tr>
+                <td>136</td>
+                <td>sunil khanorkar</td>
+                <td>+919422122154</td>
+                <td><a href="tel:+919422122154" class="call-btn">Call</a><a href="https://wa.me/+919422122154"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+             <tr>
+                <td>137</td>
+                <td>sanjay verma</td>
+                <td>+919435005053</td>
+                <td><a href="tel:+919435005053" class="call-btn">Call</a><a href="https://wa.me/+919435005053"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+             <tr>
+                <td>138</td>
+                <td>manoh licahade</td>
+                <td>+919545423311</td>
+                <td><a href="tel:+919545423311" class="call-btn">Call</a><a href="https://wa.me/+919545423311"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+             <tr>
+                <td>139</td>
+                <td> D.d gurkar</td>
+                <td>+919665708098</td>
+                <td><a href="tel:+919665708098" class="call-btn">Call</a><a href="https://wa.me/+919665708098"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+             <tr>
+                <td>140</td>
+                <td>kapil Deshmukh</td>
+                <td>+919822243324</td>
+                <td><a href="tel:+919822243324" class="call-btn">Call</a><a href="https://wa.me/+919822243324"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+             <tr>
+                <td>141</td>
+                <td>aanand kalamabe</td>
+                <td>+919890094541</td>
+                <td><a href="tel:+919890094541" class="call-btn">Call</a><a href="https://wa.me/+919890094541"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+              <tr>
+                <td>142</td>
+                <td>prafulla bhopale</td>
+                <td>+919923825571</td>
+                <td><a href="tel:+919923825571" class="call-btn">Call</a><a href="https://wa.me/+919923825571"
+                        class="whatsapp-btn">WhatsApp</a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
 
 </html>
-          
