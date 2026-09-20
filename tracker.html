@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>24-Hour · 5-Minute Log</title>
+<style>
+  :root{
+    --ink:#1f2523;
+    --paper:#f6f5f1;
+    --line:#cfd0c8;
+    --line-strong:#3a3f3c;
+    --past:#d9705f;
+    --past-text:#fff;
+    --now:#f2c14e;
+    --now-text:#2b2200;
+    --future:#8fb996;
+    --future-text:#0f2814;
+    --future-empty:#e7ede8;
+    --accent:#3a6152;
+    --cell-w:56px;
+    --cell-h:30px;
+    --font-scale:1;
+  }
+
+  *{box-sizing:border-box;}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Courier New', Consolas, monospace;
+    padding:18px 14px 60px;
+  }
+
+  header{
+    max-width:1400px;
+    margin:0 auto 18px;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:14px;
+    border-bottom:3px solid var(--line-strong);
+    padding-bottom:12px;
+  }
+
+  h1{
+    font-size:clamp(1.1rem,3vw,1.6rem);
+    letter-spacing:0.04em;
+    margin:0;
+    text-transform:uppercase;
+  }
+  h1 span{ color:var(--accent); }
+
+  .clock{
+    font-size: 70px;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+    position: fixed;
+    right: 0;
+    top:10vh;
+    background-color: yellow;
+    z-index: 12;
+  }
+
+  .controls{
+    max-width:1400px;
+    margin:0 auto 16px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    align-items:center;
+    justify-content:space-between;
+    font-size:0.8rem;
+  }
+
+  .legend{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .legend-item{ display:flex; align-items:center; gap:6px; }
+  .swatch{
+    width:14px; height:14px;
+    border:1px solid var(--line-strong);
+    display:inline-block;
+  }
+  .sw-past{ background:var(--past); }
+  .sw-now{ background:var(--now); }
+  .sw-future{ background:var(--future-empty); }
+
+  .size-toggle{ display:flex; gap:6px; align-items:center; }
+  .size-toggle button{
+    font-family:inherit;
+    font-size:0.75rem;
+    padding:5px 10px;
+    background:var(--paper);
+    border:1px solid var(--line-strong);
+    cursor:pointer;
+    color:var(--ink);
+  }
+  .size-toggle button.active{
+    background:var(--accent);
+    color:#fff;
+    border-color:var(--accent);
+  }
+
+  .half-label{
+    max-width:1400px;
+    margin:22px auto 8px;
+    font-size:0.85rem;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:bold;
+    border-left:4px solid var(--accent);
+    padding-left:8px;
+  }
+
+  .scroll-row{
+    max-width:1400px;
+    margin:0 auto;
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
+    padding-bottom:10px;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .block{
+    flex:0 0 auto;
+    border:1px solid var(--line-strong);
+    background:#fff;
+  }
+
+  table{
+    border-collapse:collapse;
+  }
+
+  .block th, .block td{
+    border:1px solid var(--line);
+    text-align:center;
+    padding:0;
+    font-size:calc(0.68rem * var(--font-scale));
+  }
+
+  .block-title{
+    background:var(--line-strong);
+    color:#fff;
+    font-weight:bold;
+    letter-spacing:0.08em;
+    padding:5px 0 !important;
+    font-size:calc(0.78rem * var(--font-scale)) !important;
+  }
+
+  .sub-head{
+    background:#e9e7de;
+    font-weight:bold;
+    width:calc(var(--cell-w) * var(--font-scale));
+    height:22px;
+  }
+
+  .row-label{
+    background:#efeee7;
+    width:38px;
+    font-weight:bold;
+    color:#555;
+    font-size:calc(0.62rem * var(--font-scale)) !important;
+  }
+
+  .cell{
+    width:calc(var(--cell-w) * var(--font-scale));
+    height:calc(var(--cell-h) * var(--font-scale));
+    position:relative;
+  }
+
+  .cell-input{
+    touch-action:pan-x;
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    outline:none;
+    padding:2px;
+    overflow:hidden;
+    word-break:break-word;
+    line-height:1.1;
+  }
+
+  .cell-input:focus{
+    box-shadow:inset 0 0 0 2px var(--accent);
+  }
+
+  td.past{ background:var(--past); color:var(--past-text); }
+  td.now{
+    background:var(--now);
+    color:var(--now-text);
+    box-shadow:inset 0 0 0 2px var(--line-strong);
+    animation:pulse 2s ease-in-out infinite;
+  }
+  td.future{ background:var(--future-empty); color:var(--future-text); }
+  td.future.has-text{ background:var(--future); }
+
+  td.cell.selected{
+    box-shadow:inset 0 0 0 2px var(--accent), inset 0 0 0 4px rgba(255,255,255,0.6);
+  }
+  td.cell.selected .cell-input{
+    background:rgba(58,97,82,0.18);
+  }
+
+  @keyframes pulse{
+    0%,100%{ filter:brightness(1); }
+    50%{ filter:brightness(1.12); }
+  }
+
+  footer{
+    max-width:1400px;
+    margin:26px auto 0;
+    font-size:0.72rem;
+    color:#666;
+    line-height:1.5;
+    border-top:1px solid var(--line);
+    padding-top:10px;
+  }
+
+  @media (max-width:640px){
+    header{ flex-direction:column; align-items:flex-start; }
+    .controls{ flex-direction:column; align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>24-Hour <span>&middot;</span> 5-Minute Log</h1>
+  <div class="clock" id="clockDisplay">--:--:--</div>
+</header>
+
+
+<div class="controls">
+  <div class="legend">
+    <div class="legend-item"><span class="swatch sw-past"></span> Past</div>
+    <div class="legend-item"><span class="swatch sw-now"></span> Current 5 min</div>
+    <div class="legend-item"><span class="swatch sw-future"></span> Upcoming</div>
+  </div>
+  <div class="size-toggle">
+    <span>Cell size:</span>
+    <button data-scale="0.8">S</button>
+    <button data-scale="1" class="active">M</button>
+    <button data-scale="1.35">L</button>
+    <button data-scale="1.7">XL</button>
+  </div>
+</div>
+
+<div class="half-label">Morning &nbsp;·&nbsp; 12:00 AM &mdash; 12:00 PM</div>
+<div class="scroll-row" id="amRow"></div>
+
+<div class="half-label">Afternoon / Evening &nbsp;·&nbsp; 12:00 PM &mdash; 12:00 AM</div>
+<div class="scroll-row" id="pmRow"></div>
+
+<footer>
+  Each cell = one 5-minute interval. Click any cell to type a note. Colors update automatically:
+  red = already passed, yellow = happening right now, green = still ahead (darker green once you've typed something in it).
+</footer>
+
+<script>
+(function(){
+  const amStarts = [0,2,4,6,8,10];
+  const pmStarts = [12,14,16,18,20,22];
+
+  function hourLabel12(h){
+    const hh = h % 12;
+    return hh === 0 ? 12 : hh;
+  }
+
+  function buildBlock(startHour){
+    const block = document.createElement('div');
+    block.className = 'block';
+
+    const table = document.createElement('table');
+
+    // Block title row
+    const titleRow = document.createElement('tr');
+    const titleTh = document.createElement('th');
+    titleTh.colSpan = 3;
+    titleTh.className = 'block-title';
+    titleTh.textContent = hourLabel12(startHour) + ' - ' + hourLabel12(startHour + 2);
+    titleRow.appendChild(titleTh);
+    table.appendChild(titleRow);
+
+    // Sub header row (hour labels)
+    const subRow = document.createElement('tr');
+    const blank = document.createElement('th');
+    blank.className = 'row-label';
+    subRow.appendChild(blank);
+
+    [startHour, startHour + 1].forEach(h => {
+      const th = document.createElement('th');
+      th.className = 'sub-head';
+      th.textContent = hourLabel12(h) + '-' + hourLabel12(h + 1);
+      subRow.appendChild(th);
+    });
+    table.appendChild(subRow);
+
+    // 12 rows of 5-minute increments
+    for(let i = 0; i < 12; i++){
+      const tr = document.createElement('tr');
+      const label = document.createElement('td');
+      label.className = 'row-label';
+      label.textContent = (i*5) + '-' + (i*5+5);
+      tr.appendChild(label);
+
+      [startHour, startHour + 1].forEach(h => {
+        const td = document.createElement('td');
+        td.className = 'cell';
+        const startMin = h * 60 + i * 5;
+        td.dataset.start = startMin;
+        td.dataset.end = startMin + 5;
+
+        const inputSpan = document.createElement('div');
+        inputSpan.className = 'cell-input';
+        inputSpan.contentEditable = 'true';
+        inputSpan.spellcheck = false;
+        inputSpan.addEventListener('input', () => {
+          td.classList.toggle('has-text', inputSpan.textContent.trim().length > 0);
+        });
+        td.appendChild(inputSpan);
+        tr.appendChild(td);
+      });
+      table.appendChild(tr);
+    }
+
+    block.appendChild(table);
+    return block;
+  }
+
+  const amRow = document.getElementById('amRow');
+  const pmRow = document.getElementById('pmRow');
+  amStarts.forEach(h => amRow.appendChild(buildBlock(h)));
+  pmStarts.forEach(h => pmRow.appendChild(buildBlock(h)));
+
+  const allCells = Array.from(document.querySelectorAll('td.cell'));
+
+  // Cells ordered chronologically (by their 5-minute start time) so paste
+  // can flow forward through the day regardless of which block it's in.
+  const timeOrder = allCells.slice().sort((a,b) => Number(a.dataset.start) - Number(b.dataset.start));
+  timeOrder.forEach((td, idx) => { td.dataset.timeIndex = idx; });
+
+  let selectedCells = [];   // currently highlighted td elements, in timeOrder order
+  let anchorIndex = null;   // index (in timeOrder) of the last plain click, for shift-click / drag ranges
+  let isMouseDown = false;
+  let isDragging = false;
+
+  function clearSelection(){
+    selectedCells.forEach(td => td.classList.remove('selected'));
+    selectedCells = [];
+  }
+
+  function selectRange(startIdx, endIdx){
+    clearSelection();
+    const lo = Math.min(startIdx, endIdx);
+    const hi = Math.max(startIdx, endIdx);
+    for(let i = lo; i <= hi; i++){
+      timeOrder[i].classList.add('selected');
+      selectedCells.push(timeOrder[i]);
+    }
+  }
+
+  document.addEventListener('mouseup', () => {
+    isMouseDown = false;
+    isDragging = false;
+  });
+
+  // --- Touch support (phones/tablets) ---
+  // There's no Ctrl+V or Shift-click on touch, so: touch-and-drag a finger
+  // across cells to select a range, then use the device's own "Paste" bubble
+  // (long-press the selection, or the keyboard's paste key) to paste into it.
+  let touchStartX = 0, touchStartY = 0, touchAnchorIdx = null, touchMoved = false;
+  const TOUCH_MOVE_THRESHOLD = 10; // px before we treat it as a drag, not a tap
+
+  document.addEventListener('touchend', () => {
+    touchAnchorIdx = null;
+    touchMoved = false;
+    isDragging = false;
+  });
+
+  allCells.forEach(td => {
+    const inputSpan = td.querySelector('.cell-input');
+    const idx = Number(td.dataset.timeIndex);
+
+    inputSpan.addEventListener('mousedown', (e) => {
+      isMouseDown = true;
+      isDragging = false;
+      if(e.shiftKey && anchorIndex !== null){
+        e.preventDefault(); // don't drop a text cursor, just select the range
+        selectRange(anchorIndex, idx);
+      } else {
+        clearSelection();
+        anchorIndex = idx;
+        // Don't preventDefault here so a plain single click still places
+        // a normal text caret for typing. Dragging is handled below.
+      }
+    });
+
+    // Click-and-drag across cells (like dragging a selection in Excel)
+    inputSpan.addEventListener('mouseenter', (e) => {
+      if(isMouseDown && anchorIndex !== null){
+        isDragging = true;
+        e.preventDefault();
+        selectRange(anchorIndex, idx);
+      }
+    });
+
+    inputSpan.addEventListener('touchstart', (e) => {
+      const t = e.touches[0];
+      touchStartX = t.clientX;
+      touchStartY = t.clientY;
+      touchAnchorIdx = idx;
+      touchMoved = false;
+
+      // If this cell is already part of a multi-cell selection, leave the
+      // selection alone — the user is likely long-pressing inside it to
+      // bring up the native Paste bubble, not starting a new selection.
+      if(!(selectedCells.length > 1 && selectedCells.includes(td))){
+        clearSelection();
+        anchorIndex = idx;
+      }
+      // No preventDefault here so a plain tap still opens the keyboard
+      // and places a caret normally.
+    }, { passive: true });
+
+    inputSpan.addEventListener('touchmove', (e) => {
+      if(touchAnchorIdx === null) return;
+      const t = e.touches[0];
+      const dx = t.clientX - touchStartX;
+      const dy = t.clientY - touchStartY;
+      if(!touchMoved && Math.hypot(dx, dy) < TOUCH_MOVE_THRESHOLD) return;
+
+      touchMoved = true;
+      isDragging = true;
+      e.preventDefault(); // stop the page from scrolling while selecting
+
+      const el = document.elementFromPoint(t.clientX, t.clientY);
+      const overCell = el && el.closest('.cell-input');
+      if(overCell){
+        const overTd = overCell.closest('td.cell');
+        selectRange(touchAnchorIdx, Number(overTd.dataset.timeIndex));
+      }
+    }, { passive: false });
+
+    // Plain click on an already-focused cell still counts as (re)anchoring,
+    // as long as we're not in the middle of a drag selection.
+    inputSpan.addEventListener('focus', () => {
+      if(!isDragging && !(selectedCells.length > 1)){
+        clearSelection();
+        anchorIndex = idx;
+      }
+    });
+
+    inputSpan.addEventListener('paste', (e) => {
+      e.preventDefault();
+      const text = (e.clipboardData || window.clipboardData).getData('text');
+      if(!text) return;
+
+      // Flatten Excel-style pasted data (rows split by newline, columns by tab)
+      // into a single ordered list of values.
+      const values = text
+        .split(/\r\n|\r|\n/)
+        .flatMap(line => line.split('\t'))
+        .filter((v, i, arr) => !(i === arr.length - 1 && v === '')); // drop trailing empty from final newline
+
+      if(values.length === 0) return;
+
+      const targets = selectedCells.length ? selectedCells.slice() : [td];
+      const filled = [];
+
+      if(values.length === 1 && targets.length > 1){
+        // Excel behavior: pasting a single copied value into a multi-cell
+        // selection fills every selected cell with that same value.
+        targets.forEach(targetTd => {
+          const span = targetTd.querySelector('.cell-input');
+          span.textContent = values[0];
+          targetTd.classList.toggle('has-text', values[0].trim().length > 0);
+          filled.push(targetTd);
+        });
+      } else {
+        // Fill forward chronologically starting at the first selected cell
+        // (or this cell, if nothing else is selected), same as Excel pasting
+        // a multi-cell block starting at the active cell.
+        const startIdx = Number(targets[0].dataset.timeIndex);
+        values.forEach((val, i) => {
+          const targetTd = timeOrder[startIdx + i];
+          if(!targetTd) return;
+          const span = targetTd.querySelector('.cell-input');
+          span.textContent = val;
+          targetTd.classList.toggle('has-text', val.trim().length > 0);
+          filled.push(targetTd);
+        });
+      }
+
+      clearSelection();
+      filled.forEach(t => t.classList.add('selected'));
+      selectedCells = filled;
+      anchorIndex = Number(filled[0].dataset.timeIndex);
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if(selectedCells.length > 1 && (e.key === 'Delete' || e.key === 'Backspace')){
+      const active = document.activeElement;
+      const isEditingASelectedCell = active && active.classList && active.classList.contains('cell-input')
+        && selectedCells.some(td => td.querySelector('.cell-input') === active);
+      // Only bulk-clear if focus isn't mid-edit in a single cell with a real caret,
+      // e.g. right after a shift-click range selection.
+      if(!isEditingASelectedCell || selectedCells.length > 1){
+        e.preventDefault();
+        selectedCells.forEach(td => {
+          const span = td.querySelector('.cell-input');
+          span.textContent = '';
+          td.classList.remove('has-text');
+        });
+      }
+    }
+    if(e.key === 'Escape'){
+      clearSelection();
+    }
+  });
+
+  function updateColors(){
+    const now = new Date();
+    const nowMin = now.getHours() * 60 + now.getMinutes();
+
+    allCells.forEach(td => {
+      const start = Number(td.dataset.start);
+      const end = Number(td.dataset.end);
+      td.classList.remove('past','now','future');
+      if(nowMin >= end){
+        td.classList.add('past');
+      } else if(nowMin >= start && nowMin < end){
+        td.classList.add('now');
+      } else {
+        td.classList.add('future');
+      }
+    });
+
+    const clock = document.getElementById('clockDisplay');
+    clock.textContent = now.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit',hour12: true});
+  }
+
+  updateColors();
+  setInterval(updateColors, 1000);
+
+  // Cell size controls
+  document.querySelectorAll('.size-toggle button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.size-toggle button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.documentElement.style.setProperty('--font-scale', btn.dataset.scale);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
