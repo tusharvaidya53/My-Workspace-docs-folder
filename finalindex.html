@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul & Shruti's Wedding Celebration</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Seagull Std Medium';
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        .header {
+            background-color: #dbdcde;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        .nav {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+        .nav a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .hero iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 100vh;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 20px;
+            color: white;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 8px;
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .hero h2 {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            background-color: white;
+            color: #333;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #333;
+            color: white;
+        }
+        .section {
+            padding: 80px 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+        .grid-item {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .grid-item:hover {
+            transform: translateY(-10px);
+        }
+        .grid-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .grid-item iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+        .grid-item-content {
+            padding: 20px;
+        }
+        .grid-item h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+        @media (min-aspect-ratio: 16/9) {
+            .hero iframe {
+                height: 56.25vw;
+            }
+        }
+        @media (max-aspect-ratio: 16/9) {
+            .hero iframe {
+                width: 177.78vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Rahul & Shruti</h1>
+        <nav class="nav">
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <iframe src="https://www.youtube.com/embed/ca16i6dtPHo?autoplay=1&mute=1&controls=0&loop=1&playlist=ca16i6dtPHo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div class="hero-content">
+            <h2>Rahul & Shruti</h2>
+            <p>June 25, 2024 | Nagpur, India</p>
+        </div>
+    </section>
+
+    <section id="videos" class="section">
+        <div class="container">
+            <h2 class="section-title">Wedding Videos</h2>
+            <div class="grid">
+                <div class="grid-item">
+                    <iframe src="https://www.youtube.com/embed/ca16i6dtPHo?autoplay=0&mute=0&controls=1&loop=1&playlist=5C5C9ZRml1Y" frameborder="0" allowfullscreen></iframe>
+                    <div class="grid-item-content">
+                        <h3>Sangeet</h3>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <iframe src="https://www.youtube.com/embed/ca16i6dtPHo?autoplay=0&mute=0&controls=1&loop=1&playlist=Sk8v_AVqWpE" frameborder="0" allowfullscreen></iframe>
+                    <div class="grid-item-content">
+                        <h3>Haldi</h3>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <iframe src="https://www.youtube.com/embed/ca16i6dtPHo?autoplay=0&mute=0&controls=1&loop=1&playlist=icPOOAqAACs" frameborder="0" allowfullscreen></iframe>
+                    <div class="grid-item-content">
+                        <h3>Wedding Day</h3>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <iframe src="https://www.youtube.com/embed/ca16i6dtPHo?autoplay=0&mute=0&controls=1&loop=1&playlist=x1HVmEUPhQ4" frameborder="0" allowfullscreen></iframe>
+                    <div class="grid-item-content">
+                        <h3>Haldi At Home</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
